@@ -25,12 +25,10 @@
           </div>
         </div>
       </nav>
-    <!--Main Content-->
+   
     <div class="mt-5">
         <h1 class="text-center">View Task</h1>
-        <div class="container">
-            <!--Add User Button-->
-            <div class="my-3">
+        <div class="container">    <div class="my-3">
                 <a href="/add"><button type="button" class="btn btn-primary">Add Task</button></a>
             </div>
             <table class="table border" >
@@ -39,22 +37,18 @@
                     <th scope="col">ID</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Status</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let user of users">
-                    <td>{{user.id}}</td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.pNo}}</td>
-                    <td>{{user.address}}</td>
+                  <tr *ngFor="let task of tasks">
+                    <td>{{task.id}}</td>
+                    <td>{{task.title}}</td>
+                    <td>{{task.description}}</td>
+                   
                     <td>
-                        <div class="d-inline mx-2">
-                            <button class="btn btn-warning" (click)="updateUser(user.id)" type="button">Update</button>
-                        </div>
                         <div class="d-inline">
-                          <button class="btn btn-danger" (click)="deleteUser(user.id)" type="button">Delete</button>
+                          <button class="btn btn-danger" (click)="deleteTask(task.id)" type="button">Delete</button>
                         </div>
                     </td>
                   </tr>

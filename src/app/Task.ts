@@ -1,7 +1,10 @@
-export interface Task {
-    id: number
-    title: string
-    description: string
-    status: string
+export class Task {
+    constructor(
+    
+    public title: string,
+    public description: string,
+   
+    ){}
+    
     
 }

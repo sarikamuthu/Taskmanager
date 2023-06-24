@@ -8,33 +8,18 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./viewtask.component.css']
 })
 export class ViewtaskComponent implements OnInit {
+  tasks:any;
+  constructor(private service:AppService){}
 
-users: any[] | undefined
-  url: string = "http://localhost:8080/";
-
-  constructor(private service: AppService, private router: Router) { 
-   
-  }
+  public deleteTask(id:number){
+    let resp= this.service.deleteTask(id);
+    resp.subscribe((data)=>this.tasks=data);
+   }
 
   ngOnInit(): void {
-    this.service.getUsers().subscribe(data => {
-      this.users = data;
-    })
+      let resp=this.service.viewTask();
+      resp.subscribe((data)=>this.tasks=data);
+      
   }
-
-  deleteUser(id: number){
-    this.service.deleteUser(id).subscribe(data => {
-      this.users = this.users?.filter(user => user.id !== id);
-    })
-    
-      setTimeout(()=>{
-        window.location.reload();
-      }, 100);
   
-  }
-
-  updateUser(id: number){
-    this.router.navigate(['update', id]);
-  }
-
 }

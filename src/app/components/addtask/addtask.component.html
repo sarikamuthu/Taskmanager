@@ -23,17 +23,19 @@
         </div>
       </nav>
 
-    
+      <div style="text-align: center">
+        <h1>{{message}}</h1>
+    </div>
     <!--Main Content-->
     <div class="my-5">
       <div class="mx-auto w-25 " style="max-width:100%;">
         <h2 class="text-center mb-3">Add Task</h2>
-        <!-- <form [formGroup]="form" (ngSubmit)="submit()"> -->
-         <form>
+       
+         <form [formGroup]="form" (ngSubmit)="submit()">
           <div class="row">
             <div class="col-md-12 form-group mb-3">
               <label for="title" class="form-label">Title</label>
-              <input id="title"  formControlName="title" type="text" name="title" class="form-control" placeholder="title" required>
+              <input id="title"  formControlName="title" [(ngModel)]="task.title" type="text" name="title" class="form-control" placeholder="title" required>
             </div>
           </div>
 
@@ -41,12 +43,14 @@
           <div class="row">
             <div class="col-md-12 form-group mb-3">
               <label for="desc" class="form-label">Description</label>
-              <input id="desc" type="text"  formControlName="desc" name="desc" class="form-control" placeholder="desc" required>
+              <input id="desc" type="text" [(ngModel)]="task.description" formControlName="desc" name="desc" class="form-control" placeholder="description" required>
             </div>
           </div>
+
+        
           <div class="row">
             <div class="col-md-12 form-group">
-              <input [disabled]="!form.valid" class="btn btn-primary w-100" type="submit" value="Submit">
+              <input class="btn btn-primary w-100" type="submit" value="Add Task">
             </div>
           </div>
 
